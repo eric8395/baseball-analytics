@@ -1,7 +1,7 @@
 # *Stepping Up To The Plate* - Predicting MLB Player Value & Team Wins with Machine Learning
 <p align="center">
   <img 
-  src = "https://github.com/eric8395/baseball-analytics/blob/main/images/stars.jpeg"  width="600" height="350" alt = "test"/>
+  src = "https://github.com/eric8395/baseball-analytics/blob/main/images/stars.jpeg"  width="600" height="350" />
 <p align="center"> 
 Image Source: Forbes
 </p> 
@@ -58,13 +58,13 @@ The target variable identified for this analysis was player salary for individua
 
 **Feature Engineering and Handling**
 
-- Batter and pitcher data was collected with the pybaseball package and split into basic and advanced stats. Player salaries were collected for each indidvidual year. There were many instances of missing salary values; these values were imputed based on prior salaries available for each player. For example, if Derek Jeter made $15M in 2010, and a missing value existed for 2011, the missing value would be filled with Jeter's previous year salary of $15M. 
+- **Missing Salaries:** Batter and pitcher data was collected with the pybaseball package and split into basic and advanced stats. Player salaries were collected for each indidvidual year. There were many instances of missing salary values; these values were imputed based on prior salaries available for each player. For example, if Derek Jeter made $15M in 2010, and a missing value existed for 2011, the missing value would be filled with Jeter's previous year salary of $15M. 
 
-- While the dataset was limited to players from the last 21 years, there is variance in the player salaries across the past two decades. To account for this, player salaries were adjusted for inflation using the national CPI index. 
+- **Missing Advanced Values:** The advanced statcast data consisted of mostly sparse data for very specific data collection columns. For example, the wKN statistic measures a how well a batter/pitcher performed against/using a knuckleball. Knuckleballs are rarely ever thrown in baseball and will therefore have many missing values. In this instance, these missing values would be filled with zeros. 
 
-- To further account for variability in player contracts between years, the batter and pitcher datasets were grouped by player average salaries. This method effectively removed categorical features such as position and team played. 
+- **Adjusting for Inflation:** While the dataset was limited to players from the last 21 years, there is variance in the player salaries across the past two decades. To account for this, player salaries were adjusted for inflation using the national CPI index. 
 
-- The advanced statcast data consisted of mostly sparse data for very specific data collection columns. For example, the wKN statistic measures a how well a batter/pitcher performed against/using a knuckleball. Knuckleballs are rarely ever thrown in baseball and will therefore have many missing values. In this instance, these missing values would be filled with zeros. 
+- **Average Salaries:** To further account for variability in player contracts between years, the batter and pitcher datasets were grouped by each individual player's average salary across all the years that player played. This method effectively removed categorical features such as position and team played since many players played multiple positions and teams across their careers. 
 
 **Preprocessing**
 
@@ -72,7 +72,27 @@ The target variable identified for this analysis was player salary for individua
 
 - A standard scaler was applied to each dataset to prepare for modeling. The target variable of Salary and Wins were log transformed and reverse logged once the data was passed through the modeling process. 
 
-To simplify the process of modeling, a helper function `model_results` was constructed to get individual model results consisting of training, testing, and validation scores. Metrics used for determining model performance are the coefficient of determination (R2), and the root mean square error (RMSE). 
+To simplify the process of modeling, a helper function `model_results` was constructed to get individual model results consisting of training, testing, and validation scores. Metrics used for determining model performance are the coefficient of determination (R2), and the root mean square error (RMSE).
+
+**Data Visualization**
+
+When holistically examining the batter and pitcher datasets, it is obvious that the superstars of MLB far outmake the vast majority of the average baseball player. 
+
+The salaries of these superstar players are also outliers and can be further explained by a multitude of factors not captured by the datasets.
+
+<p align="center">
+  <img 
+  src = "https://github.com/eric8395/baseball-analytics/blob/main/images/Dash%20-%20Batter%20Salaries.png"  width="620" height="600" />
+<p align="center"> 
+
+Overall, batters tend to make more on average than the pitcher. Understandably, batters ie. position players, play everyday and will likely be valued at a higher price than the pitcher who may not play every day. 
+
+<p align="center">
+  <img 
+  src = "https://github.com/eric8395/baseball-analytics/blob/main/images/Dash%20-%20Salaries.png"  width="750" height="450" />
+<p align="center"> 
+
+
 
 ## Modeling
 
