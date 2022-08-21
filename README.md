@@ -4,19 +4,19 @@
 ## Business Understanding
 
 
-**Data Sources:** 
+**Data Sources** 
 
 
-## Data Processing:
+## Data Processing
 
 
-## Modeling:
+## Modeling
 
 
 ## Evaluation
 
 
-**Recommendations & Next Steps:**
+**Recommendations & Next Steps**
 
 
 ## Repository Structure
