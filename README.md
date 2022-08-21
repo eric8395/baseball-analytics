@@ -56,17 +56,21 @@ Since Statcast is a relatively new data collection technology, we have data isol
 
 The target variable identified for this analysis was player salary for individual batter and pitcher statistics and wins for team statistics. 
 
-**Handling Missing Values**
+**Feature Engineering and Handling**
 
 - Batter and pitcher data was collected with the pybaseball package and split into basic and advanced stats. Player salaries were collected for each indidvidual year. There were many instances of missing salary values; these values were imputed based on prior salaries available for each player. For example, if Derek Jeter made $15M in 2010, and a missing value existed for 2011, the missing value would be filled with Jeter's previous year salary of $15M. 
+
+- While the dataset was limited to players from the last 21 years, there is variance in the player salaries across the past two decades. To account for this, player salaries were adjusted for inflation using the national CPI index. 
+
+- To further account for variability in player contracts between years, the batter and pitcher datasets were grouped by player average salaries. This method effectively removed categorical features such as position and team played. 
 
 - The advanced statcast data consisted of mostly sparse data for very specific data collection columns. For example, the wKN statistic measures a how well a batter/pitcher performed against/using a knuckleball. Knuckleballs are rarely ever thrown in baseball and will therefore have many missing values. In this instance, these missing values would be filled with zeros. 
 
 **Preprocessing**
 
-- A standard scaler was applied to each dataset to prepare for modeling. The target variable of Salary and Wins were log transformed and reverse logged once the data was passed through the modeling process. 
-
 - A 75%-25% train-test split and 5-Fold validation was implemented for assessment on the batting, pitching, and team datasets. 
+
+- A standard scaler was applied to each dataset to prepare for modeling. The target variable of Salary and Wins were log transformed and reverse logged once the data was passed through the modeling process. 
 
 To simplify the process of modeling, a helper function `model_results` was constructed to get individual model results consisting of training, testing, and validation scores. Metrics used for determining model performance are the coefficient of determination (R2), and the root mean square error (RMSE). 
 
