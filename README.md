@@ -66,6 +66,8 @@ The target variable identified for this analysis was player salary for individua
 
 - **Average Salaries:** To further account for variability in player contracts between years, the batter and pitcher datasets were grouped by each individual player's average salary across all the years that player played. This method effectively removed categorical features such as position and team played since many players played multiple positions and teams across their careers. 
 
+- **Feature Selection:** To reduce complexity of the modeling, we implemented the use of Sci-Kit Learn's `feature_selection` class and found that the `SelectKBest` method performed the best when it came down to finding the most important features and explaining the variance of the model. Domain knowledge about the game of baseball also came in handy here when selecting features as well. 
+
 **Preprocessing**
 
 - A 75%-25% train-test split and 5-Fold validation was implemented for assessment on the batting, pitching, and team datasets. 
