@@ -64,7 +64,9 @@ The target variable identified for this analysis was player salary for individua
 
 - **Adjusting for Inflation:** While the dataset was limited to players from the last 21 years, there is variance in the player salaries across the past two decades. To account for this, player salaries were adjusted for inflation using the national CPI index. 
 
-- **Average Salaries:** To further account for variability in player contracts between years, the batter and pitcher datasets were grouped by each individual player's average salary across all the years that player played. This method effectively removed categorical features such as position and team played since many players played multiple positions and teams across their careers. 
+- **Average Salaries:** The batter and pitcher datasets were grouped by each individual player's average salary across all the years that player played. This method effectively removed categorical features such as position and team played since many players played multiple positions and teams across their careers. 
+
+- **Salary Difference Between years:** To further account for variability in player contracts between years, the difference between player salaries each year was added as a feature into the batter and pitcher dataframes. This addresses the large salary difference for players who make a significant amount more in their free agency year.
 
 - **Feature Selection:** To reduce complexity of the modeling, we implemented the use of Sci-Kit Learn's `feature_selection` class and found that the `SelectKBest` method performed the best when it came down to finding the most important features and explaining the variance of the model. Domain knowledge about the game of baseball also came in handy here when selecting features. 
 
