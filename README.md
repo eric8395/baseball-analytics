@@ -130,7 +130,8 @@ The following visualizes the results for each dataset with the corresponding bes
 ![team_adv_resids](https://user-images.githubusercontent.com/86889081/185960123-bab77a0a-fddf-40fb-a311-622a909eb8a8.png)
 
 ## Evaluation
-**Salaries**  
+  
+### Salaries
 Gradient boosting regression for the advanced metric tables are better able to explain for the variance of data in each dataset as demonstrated by the higher R2. However, there is a larger relative RMSE due to less data points available between 2014 and 2021. As a reminder, basic metrics incorporate data between 2000 - 2021. 
 
 Despite the lower R2 scores for basic player data, we were able to achieve a margin of error of less than $2M for batter and pitcher salaries. Having manipulated the datasets and performed data analysis, possible explanations to explain for the variance in the data is as follows:
@@ -141,11 +142,11 @@ Despite the lower R2 scores for basic player data, we were able to achieve a mar
 
 - **Multicollinearity:** As discussed briefly, many of the features in each dataset are heavily collinear with each other. In order to reduce multicollinearity and complexity of the model, the most important features were selectively chosen at the risk of reducing R2 for a simpler model. 
 
-**Wins**
+### Wins
 Not surprisingly, a simple multiple linear regression model performs especially well for determining team wins. This was expected as there are strong correlations between simple team statistics. To win games, a team will need to score more runs than the other team. Similarly, the same team would need to give up less runs to the opponent in order to win. 
 
 
-**Recommendations & Next Steps**
+### Recommendations & Next Steps
 
 
 ## Repository Structure
