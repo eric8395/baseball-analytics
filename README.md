@@ -68,7 +68,7 @@ The target variable identified for this analysis was player salary for individua
 
 - **Salary Difference Between years:** To further account for variability in player contracts between years, the difference between player salaries each year was added as a feature into the batter and pitcher dataframes. This addresses the large salary difference for players who make a significant amount more in their free agency year.
 
-- **Feature Selection:** To reduce complexity of the modeling, we implemented the use of Sci-Kit Learn's `feature_selection` class and found that the `SelectKBest` method performed the best when it came down to finding the most important features and explaining the variance of the model. Domain knowledge about the game of baseball also came in handy here when selecting features. 
+- **Feature Selection:** To reduce complexity of the modeling, we implemented the use of Sci-Kit Learn's `feature_selection` class and found that the `SelectKBest` method performed the best when it came down to finding the most important features and explaining the variance of the model. Domain knowledge about the game of baseball also came in handy here when selecting features and adjusting for multicolinear features (ie. features that have correlational relationships with each other). 
 
 **Preprocessing**
 
@@ -96,12 +96,30 @@ Overall, batters tend to make more on average than the pitcher. Understandably, 
   src = "https://github.com/eric8395/baseball-analytics/blob/main/images/Dash%20-%20Salaries.png"  width="750" height="450" />
 <p align="center"> 
 
+## Modeling Process & Results
+The modeling process involved establishing a baseline linear regression model for each dataset and attempting to build a succesive model to improve upon the baseline. 
 
+### Basic Batting
+![batting_basic_resids](https://user-images.githubusercontent.com/86889081/185959810-7655368a-1ea2-49d8-9b4f-943b34a30927.png)
 
-## Modeling
+### Advanced Batting
+![batting_adv_resids](https://user-images.githubusercontent.com/86889081/185959900-bb47569d-ce2a-4b58-8a65-27a44d142f22.png)
 
+### Basic Pitching
+![pitching_basic_resids](https://user-images.githubusercontent.com/86889081/185960076-8ad3b5cd-7f88-4f45-aaeb-c5148eab615e.png)
 
-**Grouping Player Salaries**
+  
+### Advanced Pitching
+![pitching_adv_resids](https://user-images.githubusercontent.com/86889081/185960107-ea3b37ff-6fad-4c67-b586-f93baad3e778.png)
+
+  
+### Basic Teams
+![team_basic_resids](https://user-images.githubusercontent.com/86889081/185960138-dba8a55a-3719-4454-9682-a4db3a9bc57a.png)
+
+  
+### Advanced Teams
+![team_adv_resids](https://user-images.githubusercontent.com/86889081/185960123-bab77a0a-fddf-40fb-a311-622a909eb8a8.png)
+
 
 
 ## Evaluation
