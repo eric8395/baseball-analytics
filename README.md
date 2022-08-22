@@ -78,7 +78,7 @@ To simplify the process of modeling, a helper function `model_results` was const
 
 When holistically examining the batter and pitcher datasets, it is obvious that the superstars of MLB far outmake the vast majority of the average baseball player. 
 
-The salaries of these superstar players are also outliers and can be further explained by a multitude of factors not captured by the datasets.
+The salaries of these superstar players are also outliers and can be further explained by a multitude of factors not captured by the datasets. For example, below is a visualization of some of 2021's highest paid batters in MLB.
 
 <p align="center">
   <img 
