@@ -78,6 +78,8 @@ The target variable identified for this analysis was player salary for individua
 
 To simplify the process of modeling, a helper function `model_results` was constructed to get individual model results consisting of training, testing, and validation scores. Metrics used for determining model performance are the coefficient of determination (R2), and the root mean square error (RMSE).
 
+For further context, the RMSE can best be interpreted as the margin of error of a model's predictions. In other words, a RMSE of $3M means that the total difference of all errors between the model's predictions and actual values is about $3M. 
+
 **Data Visualization**
 
 When holistically examining the batter and pitcher datasets, it is obvious that the superstars of MLB far outmake the vast majority of the average baseball player. 
@@ -97,27 +99,32 @@ Overall, batters tend to make more on average than the pitcher. Understandably, 
 <p align="center"> 
 
 ## Modeling Process & Results
-The modeling process involved establishing a baseline linear regression model for each dataset and attempting to build a succesive model to improve upon the baseline. 
+The modeling process involved establishing a baseline linear regression model for each dataset and attempting to build a succesive model to improve upon the baseline. In general, the training and testing datasets were passed through the preprocessing pipeline, and the training set was fit to each respective model. Hyperparameter tuning of each model was performed using `GridSearchCV` to find the optimum R2. 
+  
+The following visualizes the resultsfor each dataset with the corresponding best performing model based on R2 and RMSE. Each plot demonstrates the model's ability to fit a linear regression line to the model's predicted vs. actual values. Residuals, or difference between actual and predicted values, are also plotted to show the difference of each point value. 
+  
+Advanced metric tables are better able to explain for the variance of data in each dataset as demonstrated by the higher R2. However, there is a larger relative RMSE due to less data points available between 2014 and 2021. Reminder that basic metrics incooporate data between 2000 - 2021. 
 
-### Basic Batting
+#### Basic Batting - Gradient Boost Regression (R2 = 0.66, RMSE = $1.8M)
 ![batting_basic_resids](https://user-images.githubusercontent.com/86889081/185959810-7655368a-1ea2-49d8-9b4f-943b34a30927.png)
 
-### Advanced Batting
+
+#### Advanced Batting - Gradient Boost Regression (R2 = 0.78, RMSE = $2.8M)
 ![batting_adv_resids](https://user-images.githubusercontent.com/86889081/185959900-bb47569d-ce2a-4b58-8a65-27a44d142f22.png)
 
-### Basic Pitching
+#### Basic Pitching - Gradient Boost Regression (R2 = 0.61, RMSE = $1.6M)
 ![pitching_basic_resids](https://user-images.githubusercontent.com/86889081/185960076-8ad3b5cd-7f88-4f45-aaeb-c5148eab615e.png)
 
   
-### Advanced Pitching
+#### Advanced Pitching - Gradient Boost Regression (R2 = 0.76, RMSE = $2.4M)
 ![pitching_adv_resids](https://user-images.githubusercontent.com/86889081/185960107-ea3b37ff-6fad-4c67-b586-f93baad3e778.png)
 
   
-### Basic Teams
+#### Basic Teams - Linear Regression (R2 = 0.92, RMSE = 3 Wins)
 ![team_basic_resids](https://user-images.githubusercontent.com/86889081/185960138-dba8a55a-3719-4454-9682-a4db3a9bc57a.png)
 
   
-### Advanced Teams
+#### Advanced Teams - Linear Regression (R2 = 0.98, RMSE = 1 Win)
 ![team_adv_resids](https://user-images.githubusercontent.com/86889081/185960123-bab77a0a-fddf-40fb-a311-622a909eb8a8.png)
 
 
