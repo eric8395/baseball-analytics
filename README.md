@@ -32,21 +32,21 @@ A total of 6 datasets were scraped, cleaned, and formatted for modeling and cons
 
 **Batters:**
 
-Basic: 9100 x 28 Features (2000 - 2021)
+- Basic: 9100 x 28 Features (2000 - 2021)
 
-Advanced: 3200 x 321 Features (2014 - 2021)
+- Advanced: 3200 x 321 Features (2014 - 2021)
 
 **Pitchers:**
 
-Basic: 9400 x 34 Features (2000 - 2021)
+- Basic: 9400 x 34 Features (2000 - 2021)
 
-Advanced: 3900 x 334 Features (2014 - 2021)
+- Advanced: 3900 x 334 Features (2014 - 2021)
 
 **Teams:**
 
-Basic: 1600 x 61 Features (1960 - 2021)
+- Basic: 1600 x 61 Features (1960 - 2021)
 
-Advanced: 210 x 634 Features (2014 - 2021)
+- Advanced: 210 x 634 Features (2014 - 2021)
 
 Basic data consists of traditional baseball statistics that have been collected for decades such as HRs, RBIs, and SOs. Advanced data consist of collected by <a href = "https://www.mlb.com/glossary/statcast"> Statcast</a>, a state-of-the-art tracking technology that allows for the collection and analysis of a massive amount of baseball data, in ways that were never possible in the past. 
 
