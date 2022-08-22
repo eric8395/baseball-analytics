@@ -99,12 +99,14 @@ Overall, batters tend to make more on average than the pitcher. Understandably, 
 <p align="center"> 
 
 ## Modeling Process & Results
-The modeling process involved establishing a baseline linear regression model for each dataset and attempting to build a succesive model to improve upon the baseline. In general, the training and testing datasets were passed through the preprocessing pipeline, and the training set was fit to each respective model. Hyperparameter tuning of each model was performed using `GridSearchCV` to find the optimum R2. 
-  
-The following visualizes the resultsfor each dataset with the corresponding best performing model based on R2 and RMSE. Each plot demonstrates the model's ability to fit a linear regression line to the model's predicted vs. actual values. Residuals, or difference between actual and predicted values, are also plotted to show the difference of each point value. 
-  
-Advanced metric tables are better able to explain for the variance of data in each dataset as demonstrated by the higher R2. However, there is a larger relative RMSE due to less data points available between 2014 and 2021. Reminder that basic metrics incooporate data between 2000 - 2021. 
+The modeling process involved establishing a baseline linear regression model for each dataset and attempting to build a succesive model to improve upon the baseline. Models utilized in this analysis also include support vector machines (SVM), gradient boost, random forest, CatBoost, XGBoost, and neural network (MLP Regressor). 
 
+In general, the training and testing datasets were passed through the preprocessing pipeline, and the training set was fit to each respective model. Hyperparameter tuning of each model was performed using `GridSearchCV` to find the optimum R2. 
+
+For a more detailed process of all the above data processing steps and modeling, please refer to the Modeling Notebooks in this repository. 
+  
+The following visualizes the results for each dataset with the corresponding best performing model based on R2 and RMSE. Each plot demonstrates the model's ability to fit a linear regression line to the model's predicted vs. actual values. Residuals, or difference between actual and predicted values, are also plotted to show the difference of each point value. 
+  
 #### Basic Batting - Gradient Boost Regression (R2 = 0.66, RMSE = $1.8M)
 ![batting_basic_resids](https://user-images.githubusercontent.com/86889081/185959810-7655368a-1ea2-49d8-9b4f-943b34a30927.png)
 
@@ -127,9 +129,20 @@ Advanced metric tables are better able to explain for the variance of data in ea
 #### Advanced Teams - Linear Regression (R2 = 0.98, RMSE = 1 Win)
 ![team_adv_resids](https://user-images.githubusercontent.com/86889081/185960123-bab77a0a-fddf-40fb-a311-622a909eb8a8.png)
 
-
-
 ## Evaluation
+**Salaries**  
+Gradient boosting regression for the advanced metric tables are better able to explain for the variance of data in each dataset as demonstrated by the higher R2. However, there is a larger relative RMSE due to less data points available between 2014 and 2021. As a reminder, basic metrics incorporate data between 2000 - 2021. 
+
+Despite the lower R2 scores for basic player data, we were able to achieve a margin of error of less than $2M for batter and pitcher salaries. Having manipulated the datasets and performed data analysis, possible explanations to explain for the variance in the data is as follows:
+
+- **Superstar Outliers:** The vast majority of major league players do not make nearly as much as the top 25% of players in baseball. This is illustrated by the average salary of pitchers and batters over the years. The spread between the salary of the average MLB batter and top players in baseball is so large that the model struggles to make accurate predictions for these outliers. 
+
+- **Age Heading Into Free Agency:** Throughout the modeling, age was a consistent top contributing factor when determining player salaries. Those that are aware of sports contracts, it is typical to expect players to gradually make more money as they get older. Once a player becomes a free-agent (ie. players have the ability to sign with any team for any monetary amount), there are many other factors influencing player salaries that are not explained by baseball statistics alone. These factors could be marketability of the player, social media presence online, and the market demand for certain free agents each year. 
+
+- **Multicollinearity:** As discussed briefly, many of the features in each dataset are heavily collinear with each other. In order to reduce multicollinearity and complexity of the model, the most important features were selectively chosen at the risk of reducing R2 for a simpler model. 
+
+**Wins**
+Not surprisingly, a simple multiple linear regression model performs especially well for determining team wins. This was expected as there are strong correlations between simple team statistics. To win games, a team will need to score more runs than the other team. Similarly, the same team would need to give up less runs to the opponent in order to win. 
 
 
 **Recommendations & Next Steps**
