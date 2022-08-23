@@ -27,26 +27,26 @@ difference = st.number_input("Enter Average Salary Difference $\
     (Average increase/decrease across a player's contract so far)")
 
 # input bar 2
-#age = st.number_input("Age")
 age = st.slider('Age', 18, 45, 25)
+
 # input bar 3
-#hits = st.number_input("Hits")
 hits = st.slider('Hits', 0, 250, 100)
+
 # input bar 4
-#runs = st.number_input("Enter Runs")
 runs= st.slider('Runs', 0, 250, 50)
+
 # input bar 5
-#rbi = st.number_input("Enter RBIs")
 rbi = st.slider('RBIs', 0, 150, 75)
+
 # input bar 6
-#walks = st.number_input("Enter Walks")
 walks = st.slider('Walks', 0, 200, 50)
+
 # input bar 7
-#so = st.number_input("Enter Strikeouts")
 so = st.slider('Strikeouts', 0, 200, 50)
+
 # input bar 8
-#sb = st.number_input("Enter Stolen Bases")
 sb = st.slider('Stolen Bases', 0, 100, 10)
+
 # input bar 9
 ops = st.number_input("Enter OPS")
 
