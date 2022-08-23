@@ -16,9 +16,6 @@ __pycache__/
 *.jpg
 images/
 
-# Ignore py
-*.py
-
 # Distribution / packaging
 .Python
 build/
