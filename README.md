@@ -143,7 +143,11 @@ Despite the lower R2 scores for basic player data, we were able to achieve a mar
 - **Multicollinearity:** As discussed briefly, many of the features in each dataset are heavily collinear with each other. In order to reduce multicollinearity and complexity of the model, the most important features were selectively chosen at the risk of reducing R2 for a simpler model. 
 
 ### Wins
-Not surprisingly, a simple multiple linear regression model performs especially well for determining team wins. This was expected as there are strong correlations between simple team statistics. To win games, a team will need to score more runs than the other team. Similarly, the same team would need to give up less runs to the opponent in order to win. 
+Not surprisingly, a simple multiple linear regression model performs especially well for determining team wins. This was expected as there are strong correlations between simple team statistics. To win games, a team will need to score more runs than the other team. Similarly, the same team would need to give up less runs to the opponent in order to win. This is evidenced below as `ER_p` and `H/9_p` represent team pitching statistics related to a team's ability to limit opposing team runs. 
+
+![top_team_important_features](https://user-images.githubusercontent.com/86889081/186042707-3b93c2df-ab63-4705-b26c-8d7b9c446fa4.png)
+
+It is also clear that timely pitching and hitting wins games as evidenced by the `WPA` advanced statistic. Win Probability Added (WPA) captures the change in Win Expectancy from one plate appearance to the next and credits or debits the player based on how much their action increased their team’s odds of winning. 
 
 
 ### Recommendations & Next Steps
