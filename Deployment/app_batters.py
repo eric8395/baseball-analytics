@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 import joblib
 import time
-from st_aggrid import AgGrid
 
 st.image("https://media.istockphoto.com/photos/rear-view-of-baseball-batter-and-catcher-watching-the-pitch-picture-id1174867119?b=1&k=20&m=1174867119&s=170667a&w=0&h=Lpk2muXoNKWB8dTpak55rqwM1ffEddzgSZsmJeZKEvg=", use_column_width= 'always')
 
@@ -114,4 +113,3 @@ batter_2022_df = batter_2022_df.rename(columns = {'2022 Salary':'2022 Salary ($ 
                                                   'Avg Career Salary Difference':'Avg Career Salary Difference ($ Millions)'})
 
 st.dataframe(batter_2022_df)
-# AgGrid(batter_2022_df.round(2), gridOptions = go)

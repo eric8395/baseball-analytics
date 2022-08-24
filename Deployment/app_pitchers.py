@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st
 import joblib
 import time
-from st_aggrid import AgGrid
 
 st.image("https://images.unsplash.com/photo-1591444539769-2518e73d1090?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1325&q=80", use_column_width= 'always')
 
@@ -125,4 +124,3 @@ pitching_2022_df = pitching_2022_df.rename(columns = {'2022 Salary':'2022 Salary
 
 
 st.dataframe(pitching_2022_df.round(0))
-# AgGrid(pitching_2022_df.round(2))
