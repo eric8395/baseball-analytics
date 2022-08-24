@@ -107,34 +107,30 @@ For a more detailed process of all the above data processing steps and modeling,
   
 The following visualizes the results for each dataset with the corresponding best performing model based on R2 and RMSE. Each plot demonstrates the model's ability to fit a linear regression line to the model's predicted vs. actual values. Residuals, or difference between actual and predicted values, are also plotted to show the difference of each point value. 
   
-#### Basic Batting - Gradient Boost Regression (R2 = 0.66, RMSE = $1.8M)
-![batting_basic_resids](https://user-images.githubusercontent.com/86889081/185959810-7655368a-1ea2-49d8-9b4f-943b34a30927.png)
-
+#### Basic Batting - Gradient Boost Regression (R2 = 0.75, RMSE = $1.8M)
+![batting_basic_resids](https://user-images.githubusercontent.com/86889081/186288850-0799868b-1e10-4b41-945e-bf54c4841f4d.png)
 
 #### Advanced Batting - Gradient Boost Regression (R2 = 0.78, RMSE = $2.8M)
 ![batting_adv_resids](https://user-images.githubusercontent.com/86889081/185959900-bb47569d-ce2a-4b58-8a65-27a44d142f22.png)
 
-#### Basic Pitching - Gradient Boost Regression (R2 = 0.61, RMSE = $1.6M)
-![pitching_basic_resids](https://user-images.githubusercontent.com/86889081/185960076-8ad3b5cd-7f88-4f45-aaeb-c5148eab615e.png)
+#### Basic Pitching - Gradient Boost Regression (R2 = 0.74, RMSE = $1.6M)
+![pitching_basic_resids](https://user-images.githubusercontent.com/86889081/186288868-f8e31d8d-6447-4484-8820-a06e053a285d.png)
 
-  
 #### Advanced Pitching - Gradient Boost Regression (R2 = 0.76, RMSE = $2.4M)
 ![pitching_adv_resids](https://user-images.githubusercontent.com/86889081/185960107-ea3b37ff-6fad-4c67-b586-f93baad3e778.png)
-
   
 #### Basic Teams - Linear Regression (R2 = 0.92, RMSE = 3 Wins)
 ![team_basic_resids](https://user-images.githubusercontent.com/86889081/185960138-dba8a55a-3719-4454-9682-a4db3a9bc57a.png)
 
-  
 #### Advanced Teams - Linear Regression (R2 = 0.98, RMSE = 1 Win)
 ![team_adv_resids](https://user-images.githubusercontent.com/86889081/185960123-bab77a0a-fddf-40fb-a311-622a909eb8a8.png)
 
 ## Evaluation
   
 ### Salaries
-Gradient boosting regression for the advanced metric tables are better able to explain for the variance of data in each dataset as demonstrated by the higher R2. However, there is a larger relative RMSE due to less data points available between 2014 and 2021. As a reminder, basic metrics incorporate data between 2000 - 2021. 
+When comparing advanced metric tables to basic metric tables, there no significant difference in the R2 in explaining the variance of data. However, there is a larger relative RMSE likely due to less data points available between 2014 and 2021. As a reminder, basic metrics incorporate data between 2000 - 2021. 
 
-Despite the lower R2 scores for basic player data, we were able to achieve a margin of error of less than $2M for batter and pitcher salaries. Having manipulated the datasets and performed data analysis, possible explanations to explain for the variance in the data is as follows:
+We were able to achieve a margin of error of less than $2M for batter and pitcher salaries for basic batter and pitcher data. Having manipulated the datasets and performed data analysis, possible explanations to explain for the variance in the data is as follows:
 
 - **Superstar Outliers:** The vast majority of major league players do not make nearly as much as the top 25% of players in baseball. This is illustrated by the average salary of pitchers and batters over the years. The spread between the salary of the average MLB batter and top players in baseball is so large that the model struggles to make accurate predictions for these outliers. 
 
@@ -151,7 +147,9 @@ It is also clear that timely pitching and hitting wins games as evidenced by the
 
 
 ### Recommendations & Next Steps
+Having performed analysis on advanced and basic data for batters, pitchers, and teams, there is no significant difference between using basic and advanced data to predict player salaries. However, there is a stronger relationship between advanced team data and wins suggesting that building a team around players that excel in advanced metrics can be beneficial. 
 
+- 
 
 ## Repository Structure
 
