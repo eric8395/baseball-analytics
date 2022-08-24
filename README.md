@@ -149,8 +149,17 @@ It is also clear that timely pitching and hitting wins games as evidenced by the
 ### Recommendations & Next Steps
 Having performed analysis on advanced and basic data for batters, pitchers, and teams, there is no significant difference between using basic and advanced data to predict player salaries. However, there is a stronger relationship between advanced team data and wins suggesting that building a team around players that excel in advanced metrics can be beneficial. 
 
-- 
+- The batter and pitcher prediction models perform better on players who have not yet reached free agency and would likely garner a massive contract. The models struggle with predicting salaries of superstars or outliers. **Thus, the models are most effective predicting salaries for players who are likely to go through their first years of arbitration or are playing early in their careers**.
+  
+When it comes to winning games, the saying is that you could never have enough pitching. So it is no surprise that for our advanced model, simple pitching statistics such as earned runs allowed (ER) and opposing team hits per 9 innings (H/9) are strong features that explain the accuracy of the model. Correspondingly, the <a href = "https://library.fangraphs.com/offense/pitch-type-linear-weights/"> wFB </a> feature stands out as a specific pitch type that outperforms all others. 
+  
+- Fastballs are the most common pitch thrown in baseball. However, we are seeing more often pitchers throwing harder and faster and providing a competitive edge against opponents. Faster pitches = harder to hit (ie. batter response time to hit a baseball). **Target pitchers who excel at throwing fastballs above the average pitcher.**
 
+Timely hitting and pitching are other features that have a strong relationship with wins. For example, Salvador Perez and Zach Wheeler had the highest <a href = "https://library.fangraphs.com/misc/wpa/"> WPA (Win Probability Added) </a> amongst all batters and pitchers in 2021. 
+  
+- Building a team around players who excel at advanced metrics such as WPA and pitchers with above average fastballs are likely to produce a successful winning product. 
+ 
+  
 ## Repository Structure
 
 ```
