@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 import joblib
 import time
-# from PIL import Image
+from st_aggrid import AgGrid
 
 st.image("https://media.istockphoto.com/photos/rear-view-of-baseball-batter-and-catcher-watching-the-pitch-picture-id1174867119?b=1&k=20&m=1174867119&s=170667a&w=0&h=Lpk2muXoNKWB8dTpak55rqwM1ffEddzgSZsmJeZKEvg=", use_column_width= 'always')
 
@@ -17,14 +17,15 @@ st.markdown("Enter the following statistics for a batter and \
 
 # Add sidebar
 st.sidebar.markdown("## Predict the Salary of a MLB Hitter!")
-st.sidebar.image("https://assets.stickpng.com/images/584d4c0e0a44bd1070d5d495.png", width = 200)
+st.sidebar.image("http://cdn.shopify.com/s/files/1/0480/9470/7866/collections/ef26964ae31041325cd9672682c01534.jpg?v=1646869133", width = 200)
 st.sidebar.markdown("How does a team determine how much to pay their players?")
 
 st.sidebar.markdown("#### Built by Eric Au")
 
 # input bar 1
-difference = st.number_input("Enter Average Salary Difference $\
-    (Average increase/decrease across a player's career so far)")
+difference = st.number_input("Average Salary Difference (in $)")
+st.caption("*Note: Average Salary Difference is the average increase/decrease of a salary across a player's entire career. \
+For example, Derek Jeter's Average Salary Difference between 2012 and 2013 would be \\$1M if his salary was \\$14M in 2012 and \\$15M in 2013")
 
 # input bar 2
 age = st.slider('Age', 18, 45, 25)
@@ -75,7 +76,7 @@ if st.button("Submit"):
     st.dataframe(df)
 
     # output prediction
-    st.subheader(f"Predicted Player Salary: ${converted:,}")
+    st.header(f"Predicted Player Salary: ${converted:,}")
 
 # header
 st.markdown("### How do the predictions compare to 2022 stats thus far?")
@@ -103,4 +104,14 @@ batter_2022_df.loc[batter_2022_df['Predicted Salary'] < batter_2022_df['2022 Sal
 batter_2022_df = batter_2022_df[['Name', '2022 Salary', 'Predicted Salary', 'Value?', 'Avg Career Salary Difference', 'Age', \
                                 'H', 'R', 'RBI', 'BB', 'SO', 'SB', 'OPS']]
 
+# formatting as Millions
+batter_2022_df['2022 Salary'] = batter_2022_df['2022 Salary'].div(1000000).round(2)
+batter_2022_df['Predicted Salary'] = batter_2022_df['Predicted Salary'].div(1000000).round(2)
+batter_2022_df['Avg Career Salary Difference'] = batter_2022_df['Avg Career Salary Difference'].div(1000000).round(2)
+
+batter_2022_df = batter_2022_df.rename(columns = {'2022 Salary':'2022 Salary ($ Millions)',
+                                                  'Predicted Salary':'Predicted Salary ($ Millions)',
+                                                  'Avg Career Salary Difference':'Avg Career Salary Difference ($ Millions)'})
+
 st.dataframe(batter_2022_df)
+# AgGrid(batter_2022_df.round(2), gridOptions = go)
