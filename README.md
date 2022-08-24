@@ -113,8 +113,8 @@ The following visualizes the results for each dataset with the corresponding bes
 #### Advanced Batting - Gradient Boost Regression (R2 = 0.78, RMSE = $2.8M)
 ![batting_adv_resids](https://user-images.githubusercontent.com/86889081/185959900-bb47569d-ce2a-4b58-8a65-27a44d142f22.png)
 
-#### Basic Pitching - Gradient Boost Regression (R2 = 0.74, RMSE = $1.6M)
-![pitching_basic_resids](https://user-images.githubusercontent.com/86889081/186288868-f8e31d8d-6447-4484-8820-a06e053a285d.png)
+#### Basic Pitching - Gradient Boost Regression (R2 = 0.73, RMSE = $1.6M)
+![pitching_basic_resids](https://user-images.githubusercontent.com/86889081/186455267-8a0f0950-e260-4c9e-88bf-558e592c8852.png)
 
 #### Advanced Pitching - Gradient Boost Regression (R2 = 0.76, RMSE = $2.4M)
 ![pitching_adv_resids](https://user-images.githubusercontent.com/86889081/185960107-ea3b37ff-6fad-4c67-b586-f93baad3e778.png)
