@@ -146,7 +146,7 @@ Not surprisingly, a simple multiple linear regression model performs especially 
 It is also clear that timely pitching and hitting wins games as evidenced by the `WPA` advanced statistic. Win Probability Added (WPA) captures the change in Win Expectancy from one plate appearance to the next and credits or debits the player based on how much their action increased their team’s odds of winning. 
 
 
-### Recommendations & Next Steps
+### Recommendations 
 Having performed analysis on advanced and basic data for batters, pitchers, and teams, there is no significant difference between using basic and advanced data to predict player salaries. However, there is a stronger relationship between advanced team data and wins suggesting that building a team around players that excel in advanced metrics can be beneficial. 
 
 - The batter and pitcher prediction models perform better on players who have not yet reached free agency and would likely garner a massive contract. The models struggle with predicting salaries of superstars or outliers. **Thus, the models are most effective predicting salaries for players who are likely to go through their first years of arbitration or are playing early in their careers**.
@@ -157,8 +157,19 @@ When it comes to winning games, the saying is that you could never have enough p
 
 Timely hitting and pitching are other features that have a strong relationship with wins. For example, Salvador Perez and Zach Wheeler had the highest <a href = "https://library.fangraphs.com/misc/wpa/"> WPA (Win Probability Added) </a> amongst all batters and pitchers in 2021. 
   
-- Building a team around players who excel at advanced metrics such as WPA and pitchers with above average fastballs are likely to produce a successful winning product. 
+- **Building a team around players who excel at advanced metrics such as WPA and pitchers with above average fastballs are likely to produce a successful winning product**. 
+  
+### Next Steps
+  
+In order to explain for the massive salary outliers, there are many other features to account for as discussed above:
+  
+- For example, a player's agent can have a big impact on what type of salary he will command on the market. 
+  
+- Marketability of the player is another factor that would need to be accounted for. While a baseball player can prove his worth on the field, there are other immeasurable factors such as leadership and fan favorability that play a role as well. 
+  
+- Simple market demand for a player can greatly influence a player's contract due to supply and demand. 
  
+Explaining these outlier contracts can be further explored by gathering additional data for players having already reached free agency and analyzing the top 25% of player contracts. 
   
 ## Repository Structure
 
