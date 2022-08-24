@@ -174,11 +174,12 @@ Explaining these outlier contracts can be further explored by gathering addition
 ## Repository Structure
 
 ```
-├── images_presentation
-├── pdfs
-├── .gitignore
+├── Data Cleaning Notebooks
+├── Data 
+├── Deployment
 ├── EDA.ipynb
-├── Image Classification - Binary.ipynb
-└── Image Classification - Multiclass.ipynb
+├── Modeling Notebooks
+└── images
+└── .gitignore
 └── README.md
 ```
