@@ -124,4 +124,4 @@ pitching_2022_df = pitching_2022_df.rename(columns = {'2022 Salary':'2022 Salary
                                                   'Avg Career Salary Difference':'Avg Career Salary Difference ($ Millions)'})
 
 
-st.dataframe(pitching_2022_df.round(0))
+st.dataframe(pitching_2022_df)
