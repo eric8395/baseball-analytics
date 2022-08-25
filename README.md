@@ -7,14 +7,14 @@ Image Source: Forbes
 </p> 
 
 
-Like any other business, a major league baseball team operates very similarly. A franchise has to consider many factors for success including winning and the budgeting for success. Success begins and ends with the construction of a roster and translating a roster of players into wins. But how does a team decide how much they should be paying their roster of players? 
+A major league franchise has to consider many factors for success. Like any other business, a major league baseball team operates similarly. For many teams, success begins and ends with the construction of a roster under a budget and translating a roster of players into a championship caliber team. So how does a team decide how much they should be allocating their budget and constructing their roster of players? What are the keys to winning?
 
 ## Business Understanding
 
 Building a competitive team facing a limited budget is a predicament many MLB teams face. There are the big market teams like the New York Yankees, Los Angeles Dodgers, and Boston Redsox that are allowed a larger budget than most other teams. How can the smaller market teams even compete when they can't afford the superstar players to help with winning? This is the foundation of Michael Lewis's <a href="https://en.wikipedia.org/wiki/Moneyball"> Moneyball: The Art of Winning an Unfair Game </a> and the basis for this project. 
 ![Dash - Wins_Salaries](https://user-images.githubusercontent.com/86889081/185801237-28c22e95-c68d-4296-94a5-930b3282eb0f.png)
 
-The goal is to construct a machine learning model that can predict the salaries of MLB hitters and pitchers using historical baseball data collected from the last 20 years. Additionally, we want to better understand which statistics in baseball contribute the most to predicting overall team wins. 
+The goal is to construct a machine learning model that can predict the salaries of MLB hitters and pitchers using historical baseball data collected from the last 20 years. Additionally, we want to better understand which statistics in baseball contribute the most to winning. 
 
 Using these models, we can better understand the *value* of the baseball player and identify which players are potentially undervalued or overvalued when constructing a roster of players. 
 
@@ -48,27 +48,27 @@ A total of 6 datasets were scraped, cleaned, and formatted for modeling and cons
 
 - Advanced: 210 x 634 Features (2014 - 2021)
 
-Basic data consists of traditional baseball statistics that have been collected for decades such as HRs, RBIs, and SOs. Advanced data consist of collected by <a href = "https://www.mlb.com/glossary/statcast"> Statcast</a>, a state-of-the-art tracking technology that allows for the collection and analysis of a massive amount of baseball data, in ways that were never possible in the past. 
+Basic data consists of traditional baseball statistics that have been collected for decades such as HRs, RBIs, and SOs. Advanced data consist of over 300 features collected by <a href = "https://www.mlb.com/glossary/statcast"> Statcast</a>, a state-of-the-art tracking technology that allows for the collection and analysis of a massive amount of baseball data, in ways that were never possible in the past. 
 
 Since Statcast is a relatively new data collection technology, we have data isolated between 2014 - 2021. 
 
 ## Data Processing & Understanding
 
-The target variable identified for this analysis was player salary for individual batter and pitcher statistics and wins for team statistics. 
+The target variable identified for this analysis was player salary for individual batter and pitcher statistics, and wins for team statistics. 
 
 **Feature Engineering and Handling**
 
 - **Missing Salaries:** Batter and pitcher data was collected with the pybaseball package and split into basic and advanced stats. Player salaries were collected for each indidvidual year. There were many instances of missing salary values; these values were imputed based on prior salaries available for each player. For example, if Derek Jeter made $15M in 2010, and a missing value existed for 2011, the missing value would be filled with Jeter's previous year salary of $15M. 
 
-- **Missing Advanced Values:** The advanced statcast data consisted of mostly sparse data for very specific data collection columns. For example, the wKN statistic measures a how well a batter/pitcher performed against/using a knuckleball. Knuckleballs are rarely ever thrown in baseball and will therefore have many missing values. In this instance, these missing values would be filled with zeros. 
+- **Missing Advanced Values:** The advanced statcast data consisted of mostly sparse data for very specific data collection columns. For example, the wKN statistic measures how well a batter/pitcher performed against/using a knuckleball. Knuckleballs are rarely ever thrown in baseball and will therefore have many missing values. In this instance, these missing values would be filled with zeros. 
 
 - **Adjusting for Inflation:** While the dataset was limited to players from the last 21 years, there is variance in the player salaries across the past two decades. To account for this, player salaries were adjusted for inflation using the national CPI index. 
 
 - **Average Salaries:** The batter and pitcher datasets were grouped by each individual player's average salary across all the years that player played. This method effectively removed categorical features such as position and team played since many players played multiple positions and teams across their careers. 
 
-- **Salary Difference Between years:** To further account for variability in player contracts between years, the difference between player salaries each year was added as a feature into the batter and pitcher dataframes. This addresses the large salary difference for players who make a significant amount more in their free agency year.
+- **Salary Difference Between Years:** To further account for variability in player contracts between years, the difference between player salaries each year was added as a feature into the batter and pitcher dataframes. This partially addresses the large salary difference for players who make a significant amount more entering free agency. 
 
-- **Feature Selection:** To reduce complexity of the modeling, we implemented the use of Sci-Kit Learn's `feature_selection` class and found that the `SelectKBest` method performed the best when it came down to finding the most important features and explaining the variance of the model. Domain knowledge about the game of baseball also came in handy here when selecting features and adjusting for multicolinear features (ie. features that have correlational relationships with each other). 
+- **Feature Selection:** To reduce complexity of the model, Sci-Kit Learn's `feature_selection` class was implemented and found that the `SelectKBest` method performed the best when it came down to identifying the most important features and explaining the variance of the model. Domain knowledge about the game of baseball also came in handy here when selecting features and removing multicolinear features (ie. features that have correlational relationships with each other). 
 
 **Preprocessing**
 
@@ -99,7 +99,7 @@ Overall, batters tend to make more on average than the pitcher. Understandably, 
 <p align="center"> 
 
 ## Modeling Process & Results
-The modeling process involved establishing a baseline linear regression model for each dataset and attempting to build a succesive model to improve upon the baseline. Models utilized in this analysis also include support vector machines (SVM), gradient boost, random forest, CatBoost, XGBoost, and neural network (MLP Regressor). 
+The modeling process involved establishing a baseline linear regression model for each dataset and attempting to build a succesive model to improve upon the baseline. Models utilized in this analysis include support vector machine (SVM), gradient boost, random forest, CatBoost, XGBoost, and neural network (MLP Regressor). 
 
 In general, the training and testing datasets were passed through the preprocessing pipeline, and the training set was fit to each respective model. Hyperparameter tuning of each model was performed using `GridSearchCV` to find the optimum R2. 
 
@@ -128,32 +128,31 @@ The following visualizes the results for each dataset with the corresponding bes
 ## Evaluation
   
 ### Salaries
-When comparing advanced metric tables to basic metric tables, there no significant difference in the R2 in explaining the variance of data. However, there is a larger relative RMSE likely due to less data points available between 2014 and 2021. As a reminder, basic metrics incorporate data between 2000 - 2021. 
+When comparing advanced metric tables to basic metric tables, there no significant difference in the R2 in explaining the variance of data. However, there is a larger relative RMSE likely due to less data points available between 2014 and 2021. As a reminder, basic metrics incorporate more data points between 2000 - 2021. 
 
-We were able to achieve a margin of error of less than $2M for batter and pitcher salaries for basic batter and pitcher data. Having manipulated the datasets and performed data analysis, possible explanations to explain for the variance in the data is as follows:
+The best margin of error was less than $2M for batter and pitcher salaries for basic batter and pitcher data. Having manipulated the datasets and performed data analysis, possible explanations to explain for the variance in the data is as follows:
 
 - **Superstar Outliers:** The vast majority of major league players do not make nearly as much as the top 25% of players in baseball. This is illustrated by the average salary of pitchers and batters over the years. The spread between the salary of the average MLB batter and top players in baseball is so large that the model struggles to make accurate predictions for these outliers. This is further evidenced by the residual plots where the the model tends to under-estimate the actual value of a player's salary. 
 
-- **Age Heading Into Free Agency:** Throughout the modeling, age was a consistent top contributing factor when determining player salaries. Those that are aware of sports contracts, it is typical to expect players to gradually make more money as they get older. Once a player becomes a free-agent (ie. players have the ability to sign with any team for any monetary amount), there are many other factors influencing player salaries that are not explained by baseball statistics alone. These factors could be marketability of the player, social media presence online, and the market demand for certain free agents each year. 
+- **Age Heading Into Free Agency:** Throughout the modeling, age was a consistent top contributing factor when determining player salaries. Those that are aware of sports contracts, it is typical to expect players to gradually make more money as they get older. Once a player becomes a free-agent (ie. players have the ability to sign with any team for any monetary amount), there are many other factors influencing player salaries that are not explained by baseball statistics alone. These factors could be marketability of the player, social media presence online, and general economic market demand for certain free agent players each year. 
 
 - **Multicollinearity:** As discussed briefly, many of the features in each dataset are heavily collinear with each other. In order to reduce multicollinearity and complexity of the model, the most important features were selectively chosen at the risk of reducing R2 for a simpler model. 
 
 ### Wins
-Not surprisingly, a simple multiple linear regression model performs especially well for determining team wins. This was expected as there are strong correlations between simple team statistics. To win games, a team will need to score more runs than the other team. Similarly, the same team would need to give up less runs to the opponent in order to win. This is evidenced below as `ER_p` and `H/9_p` represent team pitching statistics related to a team's ability to limit opposing team runs. 
+Not surprisingly, a simple multiple linear regression model performed especially well when determining team wins. This was expected as there are strong correlational relationships between simple team statistics. To win games, a team will need to score more runs than the other team. Conversely, the same team would need to give up less runs to the opponent in order to win. This is evidenced below as `ER_p` and `H/9_p` represent team pitching statistics related to a team's ability to limit opposing team runs. 
 
 ![top_team_important_features](https://user-images.githubusercontent.com/86889081/186042707-3b93c2df-ab63-4705-b26c-8d7b9c446fa4.png)
 
 It is also clear that timely pitching and hitting wins games as evidenced by the `WPA` advanced statistic. Win Probability Added (WPA) captures the change in Win Expectancy from one plate appearance to the next and credits or debits the player based on how much their action increased their team’s odds of winning. 
 
-
 ### Recommendations 
 Having performed analysis on advanced and basic data for batters, pitchers, and teams, there is no significant difference between using basic and advanced data to predict player salaries. However, there is a stronger relationship between advanced team data and wins suggesting that building a team around players that excel in advanced metrics can be beneficial. 
 
-- The batter and pitcher prediction models perform better on players who have not yet reached free agency and would likely garner a massive contract. The models struggle with predicting salaries of superstars or outliers. **Thus, the models are most effective predicting salaries for players who are likely to go through their first years of arbitration or are playing early in their careers**.
+- The batter and pitcher prediction models perform better on players who have not yet reached free agency and would likely garner a massive contract. The models struggle with predicting salaries of superstar outliers and older players who have already signed a large contract. **The models are most effective in predicting salaries for players who are likely to go through their first years of arbitration or are playing early in their careers**.
   
 When it comes to winning games, the saying is that you could never have enough pitching. So it is no surprise that for our advanced model, simple pitching statistics such as earned runs allowed (ER) and opposing team hits per 9 innings (H/9) are strong features that explain the accuracy of the model. Correspondingly, the <a href = "https://library.fangraphs.com/offense/pitch-type-linear-weights/"> wFB </a> feature stands out as a specific pitch type that outperforms all others. 
   
-- Fastballs are the most common pitch thrown in baseball. However, we are seeing more often pitchers throwing harder and faster and providing a competitive edge against opponents. Faster pitches = harder to hit (ie. batter response time to hit a baseball). **Target pitchers who excel at throwing fastballs above the average pitcher.**
+- Fastballs are the most common pitch thrown in baseball. However, we are seeing more often pitchers throwing harder and faster and providing a competitive edge against opponents. Faster pitches tend to be more difficult to hit (ie. batter response time to hit a baseball). **Target pitchers who excel at throwing fastballs above the average pitcher.**
 
 Timely hitting and pitching are other features that have a strong relationship with wins. For example, Salvador Perez and Zach Wheeler had the highest <a href = "https://library.fangraphs.com/misc/wpa/"> WPA (Win Probability Added) </a> amongst all batters and pitchers in 2021. 
   
