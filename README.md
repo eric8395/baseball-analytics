@@ -6,10 +6,9 @@
 Image Source: Forbes
 </p> 
 
-
 A major league franchise has to consider many factors for success. Like any other business, a major league baseball team operates similarly. For many teams, success begins and ends with the construction of a roster under a budget and translating a roster of players into a championship caliber team. So how does a team decide how much they should be allocating their budget and constructing their roster of players? What are the keys to winning?
 
-## Business Understanding
+## Business Understanding 
 
 Building a competitive team facing a limited budget is a predicament many MLB teams face. There are the big market teams like the New York Yankees, Los Angeles Dodgers, and Boston Redsox that are allowed a larger budget than most other teams. How can the smaller market teams even compete when they can't afford the superstar players to help with winning? This is the foundation of Michael Lewis's <a href="https://en.wikipedia.org/wiki/Moneyball"> Moneyball: The Art of Winning an Unfair Game </a> and the basis for this project. 
 ![Dash - Wins_Salaries](https://user-images.githubusercontent.com/86889081/185801237-28c22e95-c68d-4296-94a5-930b3282eb0f.png)
@@ -17,6 +16,16 @@ Building a competitive team facing a limited budget is a predicament many MLB te
 The goal is to construct a machine learning model that can predict the salaries of MLB hitters and pitchers using historical baseball data collected from the last 20 years. Additionally, we want to better understand which statistics in baseball contribute the most to winning. 
 
 Using these models, we can better understand the *value* of the baseball player and identify which players are potentially undervalued or overvalued when constructing a roster of players. 
+
+## Web Application Deployment 
+
+Web applications were constructed and deployed locally using Streamlit and applies the basic batter and pitcher salary prediction models. For more information and structure of the web application on Streamlit, see the Deployment folder in this repository. 
+
+**Below is a sample tutorial of the web application in action and predicting a player's salaries using custom inputs.**
+
+https://user-images.githubusercontent.com/86889081/186552003-ef3612f3-2e5b-4dc1-b534-e04ad84f01aa.mov
+
+**Additionally, 2022 statistics were input into the model to predict current expected player salaries for the 2022 season. Below is an example of players identified as over-valued or under-valued according to the model's predictions.**
 
 ## Data Sources
 
