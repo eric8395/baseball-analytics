@@ -27,6 +27,9 @@ https://user-images.githubusercontent.com/86889081/186552003-ef3612f3-2e5b-4dc1-
 
 **Additionally, 2022 statistics were input into the model to predict current expected player salaries for the 2022 season. Below is an example of players identified as over-valued or under-valued according to the model's predictions.**
 
+https://user-images.githubusercontent.com/86889081/186553380-46f68a0c-10bc-4970-a31c-eb0a3b1def31.mov
+
+
 ## Data Sources
 
 Baseball player and team data was sourced using the <a href = "https://github.com/jldbc/pybaseball"> PyBaseball</a> package which allows users to scrape Baseball Reference, Baseball Savant, and FanGraphs data. For this analysis, data was collected from Baseball Reference and FanGraphs. 
