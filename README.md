@@ -166,7 +166,7 @@ When it comes to winning games, the saying is that you could never have enough p
   
 - Fastballs are the most common pitch thrown in baseball. However, we are seeing more often pitchers throwing harder and faster and providing a competitive edge against opponents. Faster pitches tend to be more difficult to hit (ie. batter response time to hit a baseball). **Target pitchers who excel at throwing fastballs above the average pitcher.**
 
-Timely hitting and pitching are other features that have a strong relationship with wins. For example, Salvador Perez and Zach Wheeler had the highest <a href = "https://library.fangraphs.com/misc/wpa/"> WPA (Win Probability Added) </a> amongst all batters and pitchers in 2021. 
+Timely hitting and pitching are other features that have a strong relationship with wins. For example, Shohei Ohtani and Corbin Burnes had the highest <a href = "https://library.fangraphs.com/misc/wpa/"> WPA (Win Probability Added) </a> amongst all batters and pitchers in 2021. 
   
 - **Building a team around players who excel at advanced metrics such as WPA and pitchers with above average fastballs are likely to produce a successful winning product**. 
   
