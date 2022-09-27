@@ -65,7 +65,7 @@ bb = st.slider('Walks', 0, 100, 40)
 if st.button("Submit"):
 
     # unpickle the batting model
-    pb_model = joblib.load("pkl/pb_model.pkl")
+    pb_model = joblib.load("pb_model.pkl")
 
     # store inputs into df
     column_names = ['Salary Difference', 'Age', 'W', 'L', 'ERA', 'G', 'SV', 'IP', 'H', 'HR', 'SO', 'BB']
@@ -98,7 +98,7 @@ pitching_2022_df = pd.read_csv('pitching_merged_2022', index_col = 0)
 df_to_predict = pitching_2022_df.drop(columns = ['Name', '2022 Salary'])
 
 # load in model
-pb_model = joblib.load("pkl/pb_model.pkl")
+pb_model = joblib.load("pb_model.pkl")
 
 # make prediction
 predictions_2022 = pb_model.predict(df_to_predict)
