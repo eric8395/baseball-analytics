@@ -8,9 +8,9 @@ __pycache__/
 
 # Ignore pickles
 
-*.pkl
-**/*.pkl
-*/pkl
+# *.pkl
+# **/*.pkl
+# */pkl
 
 
 # Ignore images
