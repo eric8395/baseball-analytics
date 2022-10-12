@@ -16,13 +16,6 @@ __pycache__/
 */Deployment
 
 
-
-# Ignore images
-*.png
-*.jpg
-images/
-/images
-
 # Distribution / packaging
 .Python
 build/
