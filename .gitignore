@@ -16,6 +16,7 @@ __pycache__/
 */Deployment
 
 
+
 # Ignore images
 *.png
 *.jpg
