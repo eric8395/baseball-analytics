@@ -6,10 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-# ignore deployment
-*/Deployment
-
-
 # Distribution / packaging
 .Python
 build/
