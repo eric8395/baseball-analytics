@@ -19,16 +19,15 @@ Using these models, we can better understand the *value* of the baseball player 
 
 ## Web Application Deployment 
 
-Web applications were constructed and deployed locally using Streamlit to predict batter and pitcher salaries. For more information and structure of the web application on Streamlit, see the Deployment folder in this repository and steps below to construct the prediction models. 
+Web applications were constructed and deployed locally using Streamlit to predict batter and pitcher salaries. 
 
-**Below is a sample tutorial of the web application in action and predicting a player's salaries using custom inputs.**
+**Applications:** <a href = 'https://eric8395-mlb-salary-prediction-app-app-batters-6h4a1a.streamlitapp.com/'>Batter Predictions</a>, <a href = 'https://eric8395-mlb-salary-prediction-app-app-pitchers-a5vll2.streamlitapp.com/'>Pitcher Predictions</a> 
+
+<a href = 'https://github.com/eric8395/MLB_salary_prediction_app'>Source Code</a>
+
+Below is a sample tutorial of the web application in action and predicting a player's salaries using custom inputs. Additionally, 2022 statistics were input into the models to predict current expected player salaries for the 2022 season. 
 
 https://user-images.githubusercontent.com/86889081/186552003-ef3612f3-2e5b-4dc1-b534-e04ad84f01aa.mov 
-
-**Additionally, 2022 statistics (up to August 24) were input into the models to predict current expected player salaries for the 2022 season. Below is an example of players identified as over-valued or under-valued according to the model's predictions.**
-
-<p align="center"> <img width="836" alt="Screen Shot 2022-08-24 at 9 31 56 PM" src="https://user-images.githubusercontent.com/86889081/186553795-7f04bfd7-0d42-4fe1-97a6-db59fc880a9b.png"> 
-
 
 ## Data Sources
 
